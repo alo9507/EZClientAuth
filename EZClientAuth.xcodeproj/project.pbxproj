@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		591D1DF223D110E300C2DC3A /* PUBAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DDD23D110E300C2DC3A /* PUBAuthManager.swift */; };
+		591D1DF323D110E300C2DC3A /* MockAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DDF23D110E300C2DC3A /* MockAuthManager.swift */; };
+		591D1DF423D110E300C2DC3A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE023D110E300C2DC3A /* AuthManager.swift */; };
+		591D1DF523D110E300C2DC3A /* FirebaseRemoteAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE323D110E300C2DC3A /* FirebaseRemoteAuthProvider.swift */; };
+		591D1DF623D110E300C2DC3A /* KeycloakAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE423D110E300C2DC3A /* KeycloakAuthProvider.swift */; };
+		591D1DF723D110E300C2DC3A /* RemoteAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE523D110E300C2DC3A /* RemoteAuthProvider.swift */; };
+		591D1DF823D110E300C2DC3A /* PUBAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE723D110E300C2DC3A /* PUBAuthProvider.swift */; };
+		591D1DF923D110E300C2DC3A /* UserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE823D110E300C2DC3A /* UserRole.swift */; };
+		591D1DFA23D110E300C2DC3A /* PUBAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE923D110E300C2DC3A /* PUBAuthError.swift */; };
+		591D1DFB23D110E300C2DC3A /* PUBUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DEB23D110E300C2DC3A /* PUBUserProfile.swift */; };
+		591D1DFC23D110E300C2DC3A /* PUBAuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DEC23D110E300C2DC3A /* PUBAuthSession.swift */; };
+		591D1DFD23D110E300C2DC3A /* PUBAuthDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DEE23D110E300C2DC3A /* PUBAuthDataStore.swift */; };
+		591D1DFE23D110E300C2DC3A /* KeychainDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */; };
+		591D1DFF23D110E300C2DC3A /* PUBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF123D110E300C2DC3A /* PUBAuth.swift */; };
 		596459EA23D10FF800E029DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459E923D10FF800E029DB /* AppDelegate.swift */; };
 		596459EC23D10FF800E029DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459EB23D10FF800E029DB /* SceneDelegate.swift */; };
 		596459EE23D10FF800E029DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459ED23D10FF800E029DB /* ContentView.swift */; };
@@ -16,6 +30,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		591D1DDD23D110E300C2DC3A /* PUBAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUBAuthManager.swift; sourceTree = "<group>"; };
+		591D1DDF23D110E300C2DC3A /* MockAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthManager.swift; sourceTree = "<group>"; };
+		591D1DE023D110E300C2DC3A /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		591D1DE323D110E300C2DC3A /* FirebaseRemoteAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteAuthProvider.swift; sourceTree = "<group>"; };
+		591D1DE423D110E300C2DC3A /* KeycloakAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeycloakAuthProvider.swift; sourceTree = "<group>"; };
+		591D1DE523D110E300C2DC3A /* RemoteAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteAuthProvider.swift; sourceTree = "<group>"; };
+		591D1DE723D110E300C2DC3A /* PUBAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUBAuthProvider.swift; sourceTree = "<group>"; };
+		591D1DE823D110E300C2DC3A /* UserRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRole.swift; sourceTree = "<group>"; };
+		591D1DE923D110E300C2DC3A /* PUBAuthError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUBAuthError.swift; sourceTree = "<group>"; };
+		591D1DEB23D110E300C2DC3A /* PUBUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUBUserProfile.swift; sourceTree = "<group>"; };
+		591D1DEC23D110E300C2DC3A /* PUBAuthSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUBAuthSession.swift; sourceTree = "<group>"; };
+		591D1DEE23D110E300C2DC3A /* PUBAuthDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUBAuthDataStore.swift; sourceTree = "<group>"; };
+		591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainDataStore.swift; sourceTree = "<group>"; };
+		591D1DF123D110E300C2DC3A /* PUBAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUBAuth.swift; sourceTree = "<group>"; };
 		596459E623D10FF800E029DB /* EZClientAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZClientAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596459E923D10FF800E029DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596459EB23D10FF800E029DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +65,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		591D1DDB23D110E300C2DC3A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DDC23D110E300C2DC3A /* AuthManager */,
+				591D1DE123D110E300C2DC3A /* RemoteAuthProvider */,
+				591D1DE623D110E300C2DC3A /* Enums */,
+				591D1DEA23D110E300C2DC3A /* Models */,
+				591D1DED23D110E300C2DC3A /* DataStore */,
+				591D1DF123D110E300C2DC3A /* PUBAuth.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		591D1DDC23D110E300C2DC3A /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DDD23D110E300C2DC3A /* PUBAuthManager.swift */,
+				591D1DDE23D110E300C2DC3A /* Implementation */,
+			);
+			path = AuthManager;
+			sourceTree = "<group>";
+		};
+		591D1DDE23D110E300C2DC3A /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DDF23D110E300C2DC3A /* MockAuthManager.swift */,
+				591D1DE023D110E300C2DC3A /* AuthManager.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		591D1DE123D110E300C2DC3A /* RemoteAuthProvider */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DE223D110E300C2DC3A /* Implementations */,
+				591D1DE523D110E300C2DC3A /* RemoteAuthProvider.swift */,
+			);
+			path = RemoteAuthProvider;
+			sourceTree = "<group>";
+		};
+		591D1DE223D110E300C2DC3A /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DE323D110E300C2DC3A /* FirebaseRemoteAuthProvider.swift */,
+				591D1DE423D110E300C2DC3A /* KeycloakAuthProvider.swift */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		591D1DE623D110E300C2DC3A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DE723D110E300C2DC3A /* PUBAuthProvider.swift */,
+				591D1DE823D110E300C2DC3A /* UserRole.swift */,
+				591D1DE923D110E300C2DC3A /* PUBAuthError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		591D1DEA23D110E300C2DC3A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DEB23D110E300C2DC3A /* PUBUserProfile.swift */,
+				591D1DEC23D110E300C2DC3A /* PUBAuthSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		591D1DED23D110E300C2DC3A /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DEE23D110E300C2DC3A /* PUBAuthDataStore.swift */,
+				591D1DEF23D110E300C2DC3A /* Implementations */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		591D1DEF23D110E300C2DC3A /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
 		596459DD23D10FF800E029DB = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +169,7 @@
 		596459E823D10FF800E029DB /* EZClientAuth */ = {
 			isa = PBXGroup;
 			children = (
+				591D1DDB23D110E300C2DC3A /* Auth */,
 				596459E923D10FF800E029DB /* AppDelegate.swift */,
 				596459EB23D10FF800E029DB /* SceneDelegate.swift */,
 				596459ED23D10FF800E029DB /* ContentView.swift */,
@@ -146,9 +260,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591D1DFA23D110E300C2DC3A /* PUBAuthError.swift in Sources */,
 				596459EA23D10FF800E029DB /* AppDelegate.swift in Sources */,
+				591D1DF423D110E300C2DC3A /* AuthManager.swift in Sources */,
+				591D1DFB23D110E300C2DC3A /* PUBUserProfile.swift in Sources */,
+				591D1DF823D110E300C2DC3A /* PUBAuthProvider.swift in Sources */,
+				591D1DFE23D110E300C2DC3A /* KeychainDataStore.swift in Sources */,
+				591D1DF323D110E300C2DC3A /* MockAuthManager.swift in Sources */,
+				591D1DF523D110E300C2DC3A /* FirebaseRemoteAuthProvider.swift in Sources */,
+				591D1DF923D110E300C2DC3A /* UserRole.swift in Sources */,
+				591D1DFC23D110E300C2DC3A /* PUBAuthSession.swift in Sources */,
 				596459EC23D10FF800E029DB /* SceneDelegate.swift in Sources */,
+				591D1DF623D110E300C2DC3A /* KeycloakAuthProvider.swift in Sources */,
+				591D1DF723D110E300C2DC3A /* RemoteAuthProvider.swift in Sources */,
+				591D1DFF23D110E300C2DC3A /* PUBAuth.swift in Sources */,
+				591D1DFD23D110E300C2DC3A /* PUBAuthDataStore.swift in Sources */,
 				596459EE23D10FF800E029DB /* ContentView.swift in Sources */,
+				591D1DF223D110E300C2DC3A /* PUBAuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
