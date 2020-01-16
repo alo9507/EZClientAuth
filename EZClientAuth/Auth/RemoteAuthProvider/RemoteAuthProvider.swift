@@ -8,14 +8,13 @@
 
 import Foundation
 
-public typealias PUBAuthValidationResponse = (Bool?, PUBAuthError?) -> Void
-public typealias PUBAuthResponse = (PUBAuthSession?, PUBAuthError?) -> Void
-public typealias PUBErrorResponse = (PUBAuthError?) -> Void
+public typealias AuthValidationResponse = (Bool?, AuthError?) -> Void
+public typealias AuthResponse = (AuthSession?, AuthError?) -> Void
+public typealias AuthErrorResponse = (AuthError?) -> Void
 
 public protocol RemoteAuthProvider {
-    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping PUBAuthResponse)
-    func signOut(authSession: PUBAuthSession, _ completion: @escaping PUBErrorResponse)
-    func signUp(email: String, password: String, completion: @escaping PUBAuthResponse)
-    func isValidAuthSession(authSession: PUBAuthSession, _ completion: @escaping PUBAuthValidationResponse)
-    func decodeUserProfile(from token: String) -> PUBUserProfile
+    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse)
+    func signOut(authSession: AuthSession, _ completion: @escaping AuthErrorResponse)
+    func signUp(email: String, password: String, completion: @escaping AuthResponse)
+    func isValidAuthSession(authSession: AuthSession, _ completion: @escaping AuthValidationResponse)
 }

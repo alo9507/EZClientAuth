@@ -8,14 +8,14 @@
 
 import Foundation
 
-public struct PUBAuth {
-    static public func configure(for authProvider: PUBAuthProvider, with dataStore: PUBAuthDataStore? = nil) {
+public struct Auth {
+    static func configure(for authProvider: AuthProviderConfiguration, with dataStore: AuthDataStore? = nil) {
         manager.configure(for: authProvider, with: dataStore)
     }
     
-    static public let manager: PUBAuthManager = AuthManager()
+    static let manager: AuthManager = AuthManager()
     
-    static public var session: PUBAuthSession? {
+    static var session: AuthSession? {
         return manager.authSession
     }
 }

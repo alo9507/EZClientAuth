@@ -8,12 +8,12 @@
 
 import Foundation
 
-class AuthManager: PUBAuthManager {
-    var authProvider: PUBAuthProvider?
+class AuthManager: AuthManangerProtocol {
+    var authProvider: AuthProviderConfiguration?
     
-    var dataStore: PUBAuthDataStore
+    var dataStore: AuthDataStore
     
-    var authSession: PUBAuthSession?
+    var authSession: AuthSession?
     
     lazy var remoteAuthProvider: RemoteAuthProvider = {
         guard let authProviderChoice = authProvider else {
@@ -29,14 +29,9 @@ class AuthManager: PUBAuthManager {
         return authProviderChoice.remoteProvider
     }()
     
-    var currentUser: PUBUserProfile? {
-        guard let token =  authSession?.token else { return nil }
-        return remoteAuthProvider.decodeUserProfile(from: token)
-    }
-    
     init(
-        authProvider: PUBAuthProvider?,
-        dataStore: PUBAuthDataStore
+        authProvider: AuthProviderConfiguration?,
+        dataStore: AuthDataStore
     ) {
         self.authProvider = authProvider
         self.dataStore = dataStore
@@ -51,19 +46,19 @@ class AuthManager: PUBAuthManager {
 }
 
 extension AuthManager {
-    func signIn(email: String? = nil, password: String? = nil, phoneNumber: String? = nil, _ completion: @escaping PUBAuthResponse) {
+    func signIn(email: String? = nil, password: String? = nil, phoneNumber: String? = nil, _ completion: @escaping AuthResponse) {
         remoteAuthProvider.signIn(email: email, password: password, phoneNumber: phoneNumber) { [weak self] (authSession, error) in
             guard error == nil else {
-                return completion(nil, PUBAuthError.failedToSignInWithRemote("email: \(email), password: \(password) \(error!.localizedDescription)"))
+                return completion(nil, AuthError.failedToSignInWithRemote("email: \(email), password: \(password) \(error!.localizedDescription)"))
             }
             
             guard let authSession = authSession else {
-                return completion(nil, PUBAuthError.failedToRetrieveAuthSession("No AuthSession, but also no errors?"))
+                return completion(nil, AuthError.failedToRetrieveAuthSession("No AuthSession, but also no errors?"))
             }
             
             self?.dataStore.save(authSession: authSession, { (error) in
                 guard error == nil else {
-                    return completion(nil, PUBAuthError.failedToPersistUserSessionData(error!.localizedDescription))
+                    return completion(nil, AuthError.failedToPersistUserSessionData(error!.localizedDescription))
                 }
                 self!.authSession = authSession
                 completion(authSession, nil)
@@ -71,50 +66,50 @@ extension AuthManager {
         }
     }
     
-    func configure(for authProvider: PUBAuthProvider, with dataStore: PUBAuthDataStore? = nil) {
+    func configure(for authProvider: AuthProviderConfiguration, with dataStore: AuthDataStore? = nil) {
         self.authProvider = authProvider
         guard let dataStore = dataStore else { return }
         self.dataStore = dataStore
     }
     
-    func clear(_ completion: @escaping PUBErrorResponse) {
+    func clear(_ completion: @escaping AuthErrorResponse) {
         self.dataStore.delete { (error) in
             guard error == nil else {
-                return completion(PUBAuthError.failedToRemoveUserSessionData("Could not clear cached session: \(error!.localizedDescription)"))
+                return completion(AuthError.failedToRemoveUserSessionData("Could not clear cached session: \(error!.localizedDescription)"))
             }
             completion(nil)
         }
     }
     
-    func signUp(email: String, password: String,  _ completion: @escaping PUBAuthResponse) {
+    func signUp(email: String, password: String,  _ completion: @escaping AuthResponse) {
         remoteAuthProvider.signUp(email: email, password: password) { (authSession, error) in
             if error != nil { return print(error!.localizedDescription) }
-            guard let authSession = authSession else { return completion(nil, PUBAuthError.failedToSignUpNewUser("No Auth session returned")) }
+            guard let authSession = authSession else { return completion(nil, AuthError.failedToSignUpNewUser("No Auth session returned")) }
             
             self.dataStore.save(authSession: authSession) { (error) in
-                if error != nil { return completion(nil, PUBAuthError.failedToPersistUserSessionData(error!.localizedDescription)) }
+                if error != nil { return completion(nil, AuthError.failedToPersistUserSessionData(error!.localizedDescription)) }
                 completion(authSession, nil)
             }
         }
     }
     
-    func signOut(_ completion: @escaping PUBErrorResponse) {
+    func signOut(_ completion: @escaping AuthErrorResponse) {
         guard let authSession = authSession else {
-            return completion(PUBAuthError.cannotSignOutIfNotSignedIn)
+            return completion(AuthError.cannotSignOutIfNotSignedIn)
         }
         
         self.dataStore.delete { (error) in
             guard error == nil else {
-                return completion(PUBAuthError.failedToRemoveUserSessionData(error!.localizedDescription))
+                return completion(AuthError.failedToRemoveUserSessionData(error!.localizedDescription))
             }
             completion(nil)
         }
     }
     
-    func isAuthenticated(_ completion: @escaping PUBAuthResponse) {
+    func isAuthenticated(_ completion: @escaping AuthResponse) {
         dataStore.readAuthSession { (authSession, error) in
             guard error == nil else {
-                return completion(nil, PUBAuthError.failedToReadLocalAuthSession(error!.localizedDescription))
+                return completion(nil, AuthError.failedToReadLocalAuthSession(error!.localizedDescription))
             }
             
             guard let authSession = authSession else {
@@ -123,11 +118,11 @@ extension AuthManager {
             
             self.remoteAuthProvider.isValidAuthSession(authSession: authSession) { (isValidAuthSession, error) in
                 guard error == nil else {
-                    return completion(nil, PUBAuthError.failedToValidateAuthSession(error!.localizedDescription))
+                    return completion(nil, AuthError.failedToValidateAuthSession(error!.localizedDescription))
                 }
                 
                 guard let isValidAuthSession = isValidAuthSession else {
-                    return completion(nil, PUBAuthError.failedToValidateAuthSession("❌ Remote returned neither errors nor an auth session? ❌"))
+                    return completion(nil, AuthError.failedToValidateAuthSession("❌ Remote returned neither errors nor an auth session? ❌"))
                 }
                 
                 if isValidAuthSession {
@@ -140,7 +135,7 @@ extension AuthManager {
                             Cached auth session is no longer valid with your remote AuthProvider. \
                             Encountered error while attempting to flush cache: \(error!.localizedDescription)
                             """
-                            return completion(nil, PUBAuthError.failedToRemoveUserSessionData(msg))
+                            return completion(nil, AuthError.failedToRemoveUserSessionData(msg))
                         }
                         completion(nil, nil)
                     }

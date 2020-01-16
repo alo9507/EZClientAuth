@@ -9,10 +9,10 @@
 import Foundation
 import Security
 
-class KeychainDataStore: PUBAuthDataStore {
+class KeychainDataStore: AuthDataStore {
     let keychainKey = "auth_session"
     
-    func readAuthSession(_ completion: @escaping PUBAuthResponse) {
+    func readAuthSession(_ completion: @escaping AuthResponse) {
         let query: [String: Any] = [
             String(kSecClass): kSecClassGenericPassword,
             String(kSecAttrAccount): keychainKey,
@@ -26,24 +26,24 @@ class KeychainDataStore: PUBAuthDataStore {
         switch status {
         case errSecSuccess:
             guard let rawData = dataTypeRef as? Data else {
-                return completion(nil, PUBAuthError.failedToReadLocalAuthSession("Typecast to Data failed"))
+                return completion(nil, AuthError.failedToReadLocalAuthSession("Typecast to Data failed"))
             }
             
             let decoder = JSONDecoder()
             do {
-                let authSession = try decoder.decode(PUBAuthSession.self, from: rawData)
+                let authSession = try decoder.decode(AuthSession.self, from: rawData)
                 completion(authSession, nil)
             } catch let error {
-                completion(nil, PUBAuthError.failedToReadLocalAuthSession(error.localizedDescription))
+                completion(nil, AuthError.failedToReadLocalAuthSession(error.localizedDescription))
             }
         case errSecItemNotFound:
             completion(nil, nil)
         default:
-            completion(nil, PUBAuthError.failedToReadLocalAuthSession(getHumanReadableErrorMessage(resultCode: status)))
+            completion(nil, AuthError.failedToReadLocalAuthSession(getHumanReadableErrorMessage(resultCode: status)))
         }
     }
     
-    func save(authSession: PUBAuthSession, _ completion: @escaping PUBErrorResponse) {
+    func save(authSession: AuthSession, _ completion: @escaping AuthErrorResponse) {
         let encoder = JSONEncoder()
         
         do {
@@ -59,23 +59,23 @@ class KeychainDataStore: PUBAuthDataStore {
             let updateStatus = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
             
             guard updateStatus == errSecItemNotFound || updateStatus == errSecSuccess else {
-                return completion(PUBAuthError.failedToPersistUserSessionData(getHumanReadableErrorMessage(resultCode: updateStatus)))
+                return completion(AuthError.failedToPersistUserSessionData(getHumanReadableErrorMessage(resultCode: updateStatus)))
             }
             
             if updateStatus == errSecItemNotFound {
                 let addStatus = SecItemAdd(query as CFDictionary, nil)
                 
                 guard addStatus == errSecSuccess else {
-                    return completion(PUBAuthError.failedToPersistUserSessionData(getHumanReadableErrorMessage(resultCode: addStatus)))
+                    return completion(AuthError.failedToPersistUserSessionData(getHumanReadableErrorMessage(resultCode: addStatus)))
                 }
             }
             completion(nil)
         } catch let error {
-            completion(PUBAuthError.failedToPersistUserSessionData(error.localizedDescription))
+            completion(AuthError.failedToPersistUserSessionData(error.localizedDescription))
         }
     }
     
-    func delete(_ completion: @escaping PUBErrorResponse) {
+    func delete(_ completion: @escaping AuthErrorResponse) {
         let query: [String: Any] = [
             String(kSecClass): String(kSecClassGenericPassword),
             String(kSecAttrAccount): keychainKey
@@ -86,7 +86,7 @@ class KeychainDataStore: PUBAuthDataStore {
         if resultCode == errSecSuccess {
             completion(nil)
         } else {
-            completion(PUBAuthError.failedToRemoveUserSessionData(getHumanReadableErrorMessage(resultCode: resultCode)))
+            completion(AuthError.failedToRemoveUserSessionData(getHumanReadableErrorMessage(resultCode: resultCode)))
         }
     }
 }

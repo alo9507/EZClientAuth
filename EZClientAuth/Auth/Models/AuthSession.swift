@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class PUBAuthSession: Codable {
+public class AuthSession: Codable {
     
     public let token: String
     

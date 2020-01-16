@@ -8,18 +8,17 @@
 
 import Foundation
 
-class MockAuthManager: PUBAuthManager {
-    var currentUser: PUBUserProfile?
+class MockAuthManager: AuthManangerProtocol {
     
-    var authProvider: PUBAuthProvider?
+    var authProvider: AuthProviderConfiguration?
     
-    var dataStore: PUBAuthDataStore
+    var dataStore: AuthDataStore
     
-    var authSession: PUBAuthSession?
+    var authSession: AuthSession?
     
     init(
-        authProvider: PUBAuthProvider?,
-        dataStore: PUBAuthDataStore
+        authProvider: AuthProviderConfiguration?,
+        dataStore: AuthDataStore
     ) {
         self.authProvider = authProvider
         self.dataStore = dataStore
@@ -31,22 +30,22 @@ class MockAuthManager: PUBAuthManager {
                   )
     }
     
-    func clear(_ completion: @escaping PUBErrorResponse) {
+    func clear(_ completion: @escaping AuthErrorResponse) {
         
     }
-    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping PUBAuthResponse) {
-        
-    }
-    
-    func signOut(_ completion: @escaping PUBErrorResponse) {
+    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse) {
         
     }
     
-    func signUp(email: String, password: String, _ completion: @escaping PUBAuthResponse) {
+    func signOut(_ completion: @escaping AuthErrorResponse) {
         
     }
     
-    func isAuthenticated(_ completion: @escaping PUBAuthResponse) {
+    func signUp(email: String, password: String, _ completion: @escaping AuthResponse) {
+        
+    }
+    
+    func isAuthenticated(_ completion: @escaping AuthResponse) {
         
     }
     

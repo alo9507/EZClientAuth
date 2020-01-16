@@ -1,5 +1,5 @@
 //
-//  PUBAuthError.swift
+//  AuthError.swift
 //  AuthFramework
 //
 //  Created by Andrew O'Brien on 12/18/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum PUBAuthError: Error, Equatable {
+public enum AuthError: Error, Equatable {
     case failedToReadLocalAuthSession(_ error: String)
     case failedToPersistUserSessionData(_ error: String)
     case failedToSignInWithRemote(_ error: String)
@@ -26,7 +26,7 @@ public enum PUBAuthError: Error, Equatable {
     case unknownError(_ error: String)
 }
 
-extension PUBAuthError: LocalizedError {
+extension AuthError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .failedToReadLocalAuthSession(let error):
