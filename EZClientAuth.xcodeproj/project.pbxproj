@@ -18,6 +18,7 @@
 		591D1DFD23D110E300C2DC3A /* AuthDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DEE23D110E300C2DC3A /* AuthDataStore.swift */; };
 		591D1DFE23D110E300C2DC3A /* KeychainDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */; };
 		591D1DFF23D110E300C2DC3A /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF123D110E300C2DC3A /* Auth.swift */; };
+		592EFA6A23D11396001CE890 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592EFA6923D11396001CE890 /* LoginViewController.swift */; };
 		596459EA23D10FF800E029DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459E923D10FF800E029DB /* AppDelegate.swift */; };
 		596459EC23D10FF800E029DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459EB23D10FF800E029DB /* SceneDelegate.swift */; };
 		596459EE23D10FF800E029DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459ED23D10FF800E029DB /* ContentView.swift */; };
@@ -38,6 +39,7 @@
 		591D1DEE23D110E300C2DC3A /* AuthDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthDataStore.swift; sourceTree = "<group>"; };
 		591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainDataStore.swift; sourceTree = "<group>"; };
 		591D1DF123D110E300C2DC3A /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		592EFA6923D11396001CE890 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		596459E623D10FF800E029DB /* EZClientAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZClientAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596459E923D10FF800E029DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596459EB23D10FF800E029DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				596459F423D10FF900E029DB /* LaunchScreen.storyboard */,
 				596459F723D10FF900E029DB /* Info.plist */,
 				596459F123D10FF900E029DB /* Preview Content */,
+				592EFA6923D11396001CE890 /* LoginViewController.swift */,
 			);
 			path = EZClientAuth;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				591D1DFA23D110E300C2DC3A /* AuthError.swift in Sources */,
 				596459EA23D10FF800E029DB /* AppDelegate.swift in Sources */,
 				591D1DF423D110E300C2DC3A /* AuthManager.swift in Sources */,
+				592EFA6A23D11396001CE890 /* LoginViewController.swift in Sources */,
 				591D1DF823D110E300C2DC3A /* AuthProviderConfiguration.swift in Sources */,
 				591D1DFE23D110E300C2DC3A /* KeychainDataStore.swift in Sources */,
 				591D1DF323D110E300C2DC3A /* MockAuthManager.swift in Sources */,
