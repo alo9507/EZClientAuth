@@ -25,6 +25,7 @@
 		596459F023D10FF900E029DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596459EF23D10FF900E029DB /* Assets.xcassets */; };
 		596459F323D10FF900E029DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596459F223D10FF900E029DB /* Preview Assets.xcassets */; };
 		596459F623D10FF900E029DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596459F423D10FF900E029DB /* LaunchScreen.storyboard */; };
+		5982184923D24AF500642B7C /* SuccessfullySignedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5982184823D24AF500642B7C /* SuccessfullySignedIn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		596459F223D10FF900E029DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		596459F523D10FF900E029DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		596459F723D10FF900E029DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5982184823D24AF500642B7C /* SuccessfullySignedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfullySignedIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				596459F723D10FF900E029DB /* Info.plist */,
 				596459F123D10FF900E029DB /* Preview Content */,
 				592EFA6923D11396001CE890 /* LoginViewController.swift */,
+				5982184823D24AF500642B7C /* SuccessfullySignedIn.swift */,
 			);
 			path = EZClientAuth;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				591D1DFC23D110E300C2DC3A /* AuthSession.swift in Sources */,
 				596459EC23D10FF800E029DB /* SceneDelegate.swift in Sources */,
 				591D1DF723D110E300C2DC3A /* RemoteAuthProvider.swift in Sources */,
+				5982184923D24AF500642B7C /* SuccessfullySignedIn.swift in Sources */,
 				591D1DFF23D110E300C2DC3A /* Auth.swift in Sources */,
 				591D1DFD23D110E300C2DC3A /* AuthDataStore.swift in Sources */,
 				596459EE23D10FF800E029DB /* ContentView.swift in Sources */,
