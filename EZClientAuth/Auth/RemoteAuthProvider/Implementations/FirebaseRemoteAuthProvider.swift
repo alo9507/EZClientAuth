@@ -6,6 +6,9 @@
 //  Copyright © 2020 Andrew O'Brien. All rights reserved.
 //
 //
+//
+//// After uncommenting this, you'll have to follow these instructions: https://firebase.google.com/docs/auth/ios/start
+//// To setup your Firebase account and install to this project
 //import Foundation
 //import FirebaseAuth
 //import Firebase
@@ -15,7 +18,7 @@
 //        guard let email = email, let password = password else {
 //            fatalError()
 //        }
-//        
+//
 //        Auth.auth().signIn(withEmail: email, password: password) { (firestoreAuthResult, error) in
 //            if error != nil {
 //                var authError: PUBAuthError
@@ -28,7 +31,7 @@
 //                default:
 //                    authError = PUBAuthError.unknownError("\(nsError.localizedDescription)")
 //                }
-//                
+//
 //                completion(nil, authError)
 //            }
 //            guard let firestoreAuthResult = firestoreAuthResult else { return completion(nil, PUBAuthError.unknownError("Firebase successfully authenticated but gave no result?")) }
@@ -36,7 +39,7 @@
 //            completion(authSession, nil)
 //        }
 //    }
-//    
+//
 //    func signOut(authSession: AuthSession, _ completion: @escaping PUBErrorResponse) {
 //        do {
 //            try Auth.auth().signOut()
@@ -45,11 +48,11 @@
 //            completion(AuthError.failedToSignOutWithRemote(error.localizedDescription))
 //        }
 //    }
-//    
+//
 //    func isValidAuthSession(authSession: AuthSession, _ completion: @escaping PUBAuthValidationResponse) {
 //        completion(true, nil)
 //    }
-//    
+//
 //    func signUp(email: String, password: String, completion: @escaping PUBAuthResponse) {
 //        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
 //            if error != nil { return completion(nil, PUBAuthError.failedToSignUpNewUser("Failed to even create user: \(error!.localizedDescription)")) }
@@ -58,7 +61,7 @@
 //            completion(authSession, nil)
 //        }
 //    }
-//    
+//
 //    func decodeUserProfile(from token: String) -> PUBUserProfile {
 //        return PUBUserProfile(scope: "", emailVerified: true, name: "", groups: [""], preferredUsername: "", givenName: "", familyName: "", email: "")
 //    }

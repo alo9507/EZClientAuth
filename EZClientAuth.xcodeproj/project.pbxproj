@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		591D1DF223D110E300C2DC3A /* AuthManangerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DDD23D110E300C2DC3A /* AuthManangerProtocol.swift */; };
+		591D1DF223D110E300C2DC3A /* AuthMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DDD23D110E300C2DC3A /* AuthMananger.swift */; };
 		591D1DF323D110E300C2DC3A /* MockAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DDF23D110E300C2DC3A /* MockAuthManager.swift */; };
-		591D1DF423D110E300C2DC3A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE023D110E300C2DC3A /* AuthManager.swift */; };
+		591D1DF423D110E300C2DC3A /* EZAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE023D110E300C2DC3A /* EZAuthManager.swift */; };
 		591D1DF523D110E300C2DC3A /* FirebaseRemoteAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE323D110E300C2DC3A /* FirebaseRemoteAuthProvider.swift */; };
 		591D1DF723D110E300C2DC3A /* RemoteAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE523D110E300C2DC3A /* RemoteAuthProvider.swift */; };
 		591D1DF823D110E300C2DC3A /* AuthProviderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DE723D110E300C2DC3A /* AuthProviderConfiguration.swift */; };
@@ -29,9 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		591D1DDD23D110E300C2DC3A /* AuthManangerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManangerProtocol.swift; sourceTree = "<group>"; };
+		591D1DDD23D110E300C2DC3A /* AuthMananger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthMananger.swift; sourceTree = "<group>"; };
 		591D1DDF23D110E300C2DC3A /* MockAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthManager.swift; sourceTree = "<group>"; };
-		591D1DE023D110E300C2DC3A /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		591D1DE023D110E300C2DC3A /* EZAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZAuthManager.swift; sourceTree = "<group>"; };
 		591D1DE323D110E300C2DC3A /* FirebaseRemoteAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteAuthProvider.swift; sourceTree = "<group>"; };
 		591D1DE523D110E300C2DC3A /* RemoteAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteAuthProvider.swift; sourceTree = "<group>"; };
 		591D1DE723D110E300C2DC3A /* AuthProviderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProviderConfiguration.swift; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 				591D1DE123D110E300C2DC3A /* RemoteAuthProvider */,
 				591D1DE623D110E300C2DC3A /* Enums */,
 				591D1DEA23D110E300C2DC3A /* Models */,
-				591D1DED23D110E300C2DC3A /* DataStore */,
+				591D1DED23D110E300C2DC3A /* AuthDataStore */,
 				591D1DF123D110E300C2DC3A /* Auth.swift */,
 			);
 			path = Auth;
@@ -79,7 +79,7 @@
 		591D1DDC23D110E300C2DC3A /* AuthManager */ = {
 			isa = PBXGroup;
 			children = (
-				591D1DDD23D110E300C2DC3A /* AuthManangerProtocol.swift */,
+				591D1DDD23D110E300C2DC3A /* AuthMananger.swift */,
 				591D1DDE23D110E300C2DC3A /* Implementation */,
 			);
 			path = AuthManager;
@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				591D1DDF23D110E300C2DC3A /* MockAuthManager.swift */,
-				591D1DE023D110E300C2DC3A /* AuthManager.swift */,
+				591D1DE023D110E300C2DC3A /* EZAuthManager.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -128,13 +128,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		591D1DED23D110E300C2DC3A /* DataStore */ = {
+		591D1DED23D110E300C2DC3A /* AuthDataStore */ = {
 			isa = PBXGroup;
 			children = (
 				591D1DEE23D110E300C2DC3A /* AuthDataStore.swift */,
 				591D1DEF23D110E300C2DC3A /* Implementations */,
 			);
-			path = DataStore;
+			path = AuthDataStore;
 			sourceTree = "<group>";
 		};
 		591D1DEF23D110E300C2DC3A /* Implementations */ = {
@@ -259,7 +259,7 @@
 			files = (
 				591D1DFA23D110E300C2DC3A /* AuthError.swift in Sources */,
 				596459EA23D10FF800E029DB /* AppDelegate.swift in Sources */,
-				591D1DF423D110E300C2DC3A /* AuthManager.swift in Sources */,
+				591D1DF423D110E300C2DC3A /* EZAuthManager.swift in Sources */,
 				592EFA6A23D11396001CE890 /* LoginViewController.swift in Sources */,
 				591D1DF823D110E300C2DC3A /* AuthProviderConfiguration.swift in Sources */,
 				591D1DFE23D110E300C2DC3A /* KeychainDataStore.swift in Sources */,
@@ -272,7 +272,7 @@
 				591D1DFF23D110E300C2DC3A /* Auth.swift in Sources */,
 				591D1DFD23D110E300C2DC3A /* AuthDataStore.swift in Sources */,
 				596459EE23D10FF800E029DB /* ContentView.swift in Sources */,
-				591D1DF223D110E300C2DC3A /* AuthManangerProtocol.swift in Sources */,
+				591D1DF223D110E300C2DC3A /* AuthMananger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

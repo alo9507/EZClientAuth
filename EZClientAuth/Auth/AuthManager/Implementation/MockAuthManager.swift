@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MockAuthManager: AuthManangerProtocol {
+class MockAuthManager: AuthMananger {
     
     var authProvider: AuthProviderConfiguration?
     

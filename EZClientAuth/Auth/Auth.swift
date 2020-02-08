@@ -13,7 +13,7 @@ public struct Auth {
         manager.configure(for: authProvider, with: dataStore)
     }
     
-    static let manager: AuthManager = AuthManager()
+    static let manager: EZAuthManager = EZAuthManager()
     
     static var session: AuthSession? {
         return manager.authSession

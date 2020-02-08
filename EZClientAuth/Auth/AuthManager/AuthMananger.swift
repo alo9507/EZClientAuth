@@ -1,5 +1,5 @@
 //
-//  AuthManangerProtocol.swift
+//  AuthMananger.swift
 //  AuthFramework
 //
 //  Created by Andrew O'Brien on 12/11/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AuthManangerProtocol {
+public protocol AuthMananger {
     
     var authProvider: AuthProviderConfiguration? { get }
     
@@ -29,7 +29,7 @@ protocol AuthManangerProtocol {
     func isAuthenticated(_ completion: @escaping AuthResponse)
 }
 
-extension AuthManangerProtocol {
+extension AuthMananger {
     func configure(for authProvider: AuthProviderConfiguration, with dataStore: AuthDataStore? = nil) {
         configure(for: authProvider, with: dataStore)
     }

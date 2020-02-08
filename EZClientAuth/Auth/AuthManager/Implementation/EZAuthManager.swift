@@ -1,5 +1,5 @@
 //
-//  AuthManager.swift
+//  EZAuthManager.swift
 //  AuthFramework
 //
 //  Created by Andrew O'Brien on 12/11/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AuthManager: AuthManangerProtocol {
+class EZAuthManager: AuthMananger {
     var authProvider: AuthProviderConfiguration?
     
     var dataStore: AuthDataStore
@@ -45,7 +45,7 @@ class AuthManager: AuthManangerProtocol {
     
 }
 
-extension AuthManager {
+extension EZAuthManager {
     func signIn(email: String? = nil, password: String? = nil, phoneNumber: String? = nil, _ completion: @escaping AuthResponse) {
         remoteAuthProvider.signIn(email: email, password: password, phoneNumber: phoneNumber) { [weak self] (authSession, error) in
             guard error == nil else {
