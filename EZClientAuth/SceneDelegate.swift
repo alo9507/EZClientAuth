@@ -9,33 +9,15 @@
 import UIKit
 import SwiftUI
 
-class MockRemoteAuthProvider: RemoteAuthProvider {
-    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse) {
-        let mockAuthSession = AuthSession(token: "FAKE AUTH TOKEN FROM REMOTE", refreshToken: "")
-        completion(mockAuthSession, nil)
-    }
-    
-    func signOut(authSession: AuthSession, _ completion: @escaping AuthErrorResponse) {
-        completion(nil)
-    }
-    
-    func signUp(email: String, password: String, completion: @escaping AuthResponse) {
-        let mockAuthSession = AuthSession(token: "FAKE AUTH TOKEN FROM REMOTE", refreshToken: "")
-        completion(mockAuthSession, nil)
-    }
-    
-    func isValidAuthSession(authSession: AuthSession, _ completion: @escaping AuthValidationResponse) {
-        completion(true, nil)
-    }
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        Auth.configure(for: .mock(mockRemoteAuthProvider: MockRemoteAuthProvider()))
+        
+        // Configuring with a mock for demo
+        // Configure with Firebase AND you Firebase info if 
+        Auth.configure(for: .mock)
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

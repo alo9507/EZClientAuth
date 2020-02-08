@@ -7,14 +7,14 @@
 //
 public enum AuthProviderConfiguration {
 //    case firebase
-    case mock(mockRemoteAuthProvider: RemoteAuthProvider)
+    case mock
     
     var remoteProvider: RemoteAuthProvider {
         switch self {
 //        case .firebase:
 //            return FirebaseRemoteAuthProvider()
-        case .mock(let mockRemoteAuthProvider):
-            return mockRemoteAuthProvider
+        case .mock:
+            return MockRemoteAuthProvider()
         }
     }
 }
