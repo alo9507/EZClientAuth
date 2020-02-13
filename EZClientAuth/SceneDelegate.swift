@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Configuring with a mock for demo
         // Configure with Firebase AND you Firebase info if 
-        Auth.configure(for: .mock)
+        EZAuth.configure(for: .mock)
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

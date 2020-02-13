@@ -14,7 +14,7 @@ class SuccessfullySignedIn: UIViewController {
         let authSessionToken = UILabel()
         
         // Access the AuthSession from anywhere in the app after you configure and signIn
-        guard let token = Auth.manager.authSession?.token else { fatalError() }
+        guard let token = EZAuth.manager.authSession?.token else { fatalError() }
         authSessionToken.text = token
         return authSessionToken
     }()
@@ -68,7 +68,7 @@ class SuccessfullySignedIn: UIViewController {
     
     @objc
     func signOut(_ sender: UIButton) {
-        Auth.manager.signOut { (error) in
+        EZAuth.manager.signOut { (error) in
             if error != nil { return print(error!.localizedDescription) }
             self.navigationController?.popViewController(animated: true)
         }

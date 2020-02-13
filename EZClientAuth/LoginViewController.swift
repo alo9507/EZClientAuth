@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
     
     @objc
     func signIn(_ sender: UIButton) {
-        Auth.manager.signIn { (authSession, error) in
+        EZAuth.manager.signIn { (authSession, error) in
             self.navigationController?.pushViewController(SuccessfullySignedIn(), animated: true)
         }
     }

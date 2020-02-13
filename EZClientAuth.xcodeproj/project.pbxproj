@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,7 @@
 		591D1DFC23D110E300C2DC3A /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DEC23D110E300C2DC3A /* AuthSession.swift */; };
 		591D1DFD23D110E300C2DC3A /* AuthDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DEE23D110E300C2DC3A /* AuthDataStore.swift */; };
 		591D1DFE23D110E300C2DC3A /* KeychainDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */; };
-		591D1DFF23D110E300C2DC3A /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF123D110E300C2DC3A /* Auth.swift */; };
+		591D1DFF23D110E300C2DC3A /* EZAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF123D110E300C2DC3A /* EZAuth.swift */; };
 		592EFA6A23D11396001CE890 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592EFA6923D11396001CE890 /* LoginViewController.swift */; };
 		596459EA23D10FF800E029DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459E923D10FF800E029DB /* AppDelegate.swift */; };
 		596459EC23D10FF800E029DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459EB23D10FF800E029DB /* SceneDelegate.swift */; };
@@ -27,9 +27,12 @@
 		596459F323D10FF900E029DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596459F223D10FF900E029DB /* Preview Assets.xcassets */; };
 		596459F623D10FF900E029DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596459F423D10FF900E029DB /* LaunchScreen.storyboard */; };
 		5982184923D24AF500642B7C /* SuccessfullySignedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5982184823D24AF500642B7C /* SuccessfullySignedIn.swift */; };
+		B57C7A39699A852D65BD4C2F /* Pods_EZClientAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A19D25483FFDA96E4123FF /* Pods_EZClientAuth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16A19D25483FFDA96E4123FF /* Pods_EZClientAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EZClientAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2575BBF402B8CFEE34E46941 /* Pods-EZClientAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EZClientAuth.debug.xcconfig"; path = "Target Support Files/Pods-EZClientAuth/Pods-EZClientAuth.debug.xcconfig"; sourceTree = "<group>"; };
 		591B94B823EF554300AB7621 /* MockRemoteAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRemoteAuthProvider.swift; sourceTree = "<group>"; };
 		591D1DDD23D110E300C2DC3A /* AuthMananger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthMananger.swift; sourceTree = "<group>"; };
 		591D1DDF23D110E300C2DC3A /* MockAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthManager.swift; sourceTree = "<group>"; };
@@ -41,7 +44,7 @@
 		591D1DEC23D110E300C2DC3A /* AuthSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
 		591D1DEE23D110E300C2DC3A /* AuthDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthDataStore.swift; sourceTree = "<group>"; };
 		591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainDataStore.swift; sourceTree = "<group>"; };
-		591D1DF123D110E300C2DC3A /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		591D1DF123D110E300C2DC3A /* EZAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZAuth.swift; sourceTree = "<group>"; };
 		592EFA6923D11396001CE890 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		596459E623D10FF800E029DB /* EZClientAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZClientAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596459E923D10FF800E029DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		596459F523D10FF900E029DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		596459F723D10FF900E029DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5982184823D24AF500642B7C /* SuccessfullySignedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfullySignedIn.swift; sourceTree = "<group>"; };
+		E976C494B021DC86D5B77F52 /* Pods-EZClientAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EZClientAuth.release.xcconfig"; path = "Target Support Files/Pods-EZClientAuth/Pods-EZClientAuth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57C7A39699A852D65BD4C2F /* Pods_EZClientAuth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +78,7 @@
 				591D1DE623D110E300C2DC3A /* Enums */,
 				591D1DEA23D110E300C2DC3A /* Models */,
 				591D1DED23D110E300C2DC3A /* AuthDataStore */,
-				591D1DF123D110E300C2DC3A /* Auth.swift */,
+				591D1DF123D110E300C2DC3A /* EZAuth.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -153,6 +158,8 @@
 			children = (
 				596459E823D10FF800E029DB /* EZClientAuth */,
 				596459E723D10FF800E029DB /* Products */,
+				B9D39B4CBBC6713CBF8C85CF /* Pods */,
+				77DAF3B4D61A4B1F6C15431D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +196,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		77DAF3B4D61A4B1F6C15431D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16A19D25483FFDA96E4123FF /* Pods_EZClientAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9D39B4CBBC6713CBF8C85CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2575BBF402B8CFEE34E46941 /* Pods-EZClientAuth.debug.xcconfig */,
+				E976C494B021DC86D5B77F52 /* Pods-EZClientAuth.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 596459FA23D10FF900E029DB /* Build configuration list for PBXNativeTarget "EZClientAuth" */;
 			buildPhases = (
+				E4B4CE632F19F406994B156F /* [CP] Check Pods Manifest.lock */,
 				596459E223D10FF800E029DB /* Sources */,
 				596459E323D10FF800E029DB /* Frameworks */,
 				596459E423D10FF800E029DB /* Resources */,
+				BC133C01C1278E0FDE1BB27F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +281,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BC133C01C1278E0FDE1BB27F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EZClientAuth/Pods-EZClientAuth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EZClientAuth/Pods-EZClientAuth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EZClientAuth/Pods-EZClientAuth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4B4CE632F19F406994B156F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EZClientAuth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		596459E223D10FF800E029DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,7 +340,7 @@
 				596459EC23D10FF800E029DB /* SceneDelegate.swift in Sources */,
 				591D1DF723D110E300C2DC3A /* RemoteAuthProvider.swift in Sources */,
 				5982184923D24AF500642B7C /* SuccessfullySignedIn.swift in Sources */,
-				591D1DFF23D110E300C2DC3A /* Auth.swift in Sources */,
+				591D1DFF23D110E300C2DC3A /* EZAuth.swift in Sources */,
 				591D1DFD23D110E300C2DC3A /* AuthDataStore.swift in Sources */,
 				596459EE23D10FF800E029DB /* ContentView.swift in Sources */,
 				591B94B923EF554300AB7621 /* MockRemoteAuthProvider.swift in Sources */,
@@ -410,6 +478,7 @@
 		};
 		596459FB23D10FF900E029DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2575BBF402B8CFEE34E46941 /* Pods-EZClientAuth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -430,6 +499,7 @@
 		};
 		596459FC23D10FF900E029DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E976C494B021DC86D5B77F52 /* Pods-EZClientAuth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
