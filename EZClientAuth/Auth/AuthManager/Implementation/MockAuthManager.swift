@@ -8,8 +8,22 @@
 
 import Foundation
 
+
+/// Use this MockAuthManager in your application to manipulate authentication state and see how your app responds
 class MockAuthManager: AuthMananger {
-    var authSession: AuthSession?
+    var signInWasCalled: Int = 0
+    var signOutWasCalled: Int = 0
+    var isAuthenticatedCalled: Int = 0
+    var signUpCalled: Int = 0
+    
+    var shouldError: Bool = false
+    var isAuthenticated: Bool = true
+    
+    var mockAuthSession: AuthSession = AuthSession(token: "FAKE_TOKEN", refreshToken: "FAKE_REFRESH_TOKEN")
+    
+    var authSession: AuthSession? {
+        return mockAuthSession
+    }
     
     var dataStore: AuthDataStore = KeychainDataStore()
     
@@ -23,12 +37,62 @@ class MockAuthManager: AuthMananger {
     
     func clear(_ completion: @escaping AuthErrorResponse) {}
     
-    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse) {}
+    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse) {
+        signInWasCalled += 1
+        
+        if shouldError {
+            completion(nil, AuthError.failedToSignInWithRemote("Some error"))
+        } else {
+            completion(mockAuthSession, nil)
+        }
+    }
     
-    func signOut(_ completion: @escaping AuthErrorResponse) {}
+    func signOut(_ completion: @escaping AuthErrorResponse) {
+        signOutWasCalled += 1
+        
+        if shouldError {
+            completion(AuthError.failedToSignInWithRemote("Some error"))
+        } else {
+            completion(nil)
+        }
+    }
     
-    func signUp(email: String, password: String, _ completion: @escaping AuthResponse) {}
+    func isAuthenticated(_ completion: @escaping AuthResponse) {
+        isAuthenticatedCalled += 1
+        
+        if shouldError {
+            completion(nil, AuthError.failedToValidateAuthSession("some error"))
+        } else {
+            if isAuthenticated {
+                completion(mockAuthSession, nil)
+            } else {
+                completion(nil, nil)
+            }
+        }
+    }
     
-    func isAuthenticated(_ completion: @escaping AuthResponse) {}
+    func signUp(email: String, password: String, _ completion: @escaping AuthResponse) {
+        signUpCalled += 1
+        
+        if shouldError {
+            completion(nil, AuthError.failedToSignUpNewUser("some error"))
+        } else {
+            completion(mockAuthSession, nil)
+        }
+    }
     
+}
+
+extension MockAuthManager: TestResetable {
+    func resetAllValues() {
+        signInWasCalled = 0
+        signOutWasCalled = 0
+        isAuthenticatedCalled = 0
+        shouldError = false
+        isAuthenticated = true
+    }
+}
+
+protocol TestResetable {
+    func resetAllValues()
 }
