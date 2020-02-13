@@ -9,44 +9,26 @@
 import Foundation
 
 class MockAuthManager: AuthMananger {
-    
-    var authProvider: AuthProviderConfiguration?
-    
-    var dataStore: AuthDataStore
-    
     var authSession: AuthSession?
     
-    init(
-        authProvider: AuthProviderConfiguration?,
-        dataStore: AuthDataStore
-    ) {
-        self.authProvider = authProvider
-        self.dataStore = dataStore
+    var dataStore: AuthDataStore = KeychainDataStore()
+    
+    var remoteAuthProvider: RemoteAuthProvider = MockRemoteAuthProvider()
+    
+    var authProviderConfiguration: AuthProviderConfiguration?
+    
+    required init(authProviderConfiguration: AuthProviderConfiguration? = nil) {
+        self.authProviderConfiguration = authProviderConfiguration
     }
     
-    convenience init() {
-        self.init(authProvider: nil,
-                  dataStore: KeychainDataStore()
-                  )
-    }
+    func clear(_ completion: @escaping AuthErrorResponse) {}
     
-    func clear(_ completion: @escaping AuthErrorResponse) {
-        
-    }
-    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse) {
-        
-    }
+    func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse) {}
     
-    func signOut(_ completion: @escaping AuthErrorResponse) {
-        
-    }
+    func signOut(_ completion: @escaping AuthErrorResponse) {}
     
-    func signUp(email: String, password: String, _ completion: @escaping AuthResponse) {
-        
-    }
+    func signUp(email: String, password: String, _ completion: @escaping AuthResponse) {}
     
-    func isAuthenticated(_ completion: @escaping AuthResponse) {
-        
-    }
+    func isAuthenticated(_ completion: @escaping AuthResponse) {}
     
 }

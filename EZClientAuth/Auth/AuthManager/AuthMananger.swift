@@ -9,12 +9,15 @@
 import Foundation
 
 public protocol AuthMananger {
-    
-    var authProvider: AuthProviderConfiguration? { get }
+    var authSession: AuthSession? { get }
     
     var dataStore: AuthDataStore { get }
     
-    var authSession: AuthSession? { get }
+    var remoteAuthProvider: RemoteAuthProvider { get }
+    
+    var authProviderConfiguration: AuthProviderConfiguration? { get }
+    
+    init(authProviderConfiguration: AuthProviderConfiguration?)
     
     func clear(_ completion: @escaping AuthErrorResponse)
     

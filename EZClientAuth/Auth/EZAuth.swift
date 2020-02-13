@@ -10,8 +10,8 @@ import Foundation
 
 // We prefix the public classes of EZClientAuth with EZ to prevent naming collisions with other libraries
 public struct EZAuth {
-    static func configure(for authProvider: AuthProviderConfiguration, with dataStore: AuthDataStore? = nil) {
-        manager.configure(for: authProvider, with: dataStore)
+    static func configure(for authProvider: AuthProviderConfiguration) {
+        manager.configure(for: authProvider)
     }
     
     static let manager: EZAuthManager = EZAuthManager()

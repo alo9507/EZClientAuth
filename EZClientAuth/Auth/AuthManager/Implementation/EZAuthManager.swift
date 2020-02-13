@@ -9,38 +9,28 @@
 import Foundation
 
 class EZAuthManager: AuthMananger {
-    var authProvider: AuthProviderConfiguration?
-    
-    var dataStore: AuthDataStore
-    
     var authSession: AuthSession?
     
+    var dataStore: AuthDataStore = KeychainDataStore()
+    
+    var authProviderConfiguration: AuthProviderConfiguration?
+    
     lazy var remoteAuthProvider: RemoteAuthProvider = {
-        guard let authProviderChoice = authProvider else {
+        guard let authProviderChoice = authProviderConfiguration else {
             fatalError("""
             
             You must call Auth.configure(for: AuthProvider) before calling any methods on AuthFramework.
                 You can initialize with the following AuthProviders: Firebase
                 
-                For testing, you can configure with .mock(mockRemoteAuthProvider: RemoteAuthProvider)
+                For testing, you can configure with .mock
             """
             )
         }
         return authProviderChoice.remoteProvider
     }()
     
-    init(
-        authProvider: AuthProviderConfiguration?,
-        dataStore: AuthDataStore
-    ) {
-        self.authProvider = authProvider
-        self.dataStore = dataStore
-    }
-    
-    convenience init() {
-        self.init(authProvider: nil,
-                  dataStore: KeychainDataStore()
-                  )
+    required init(authProviderConfiguration: AuthProviderConfiguration? = nil) {
+        self.authProviderConfiguration = authProviderConfiguration
     }
     
 }
@@ -49,7 +39,7 @@ extension EZAuthManager {
     func signIn(email: String? = nil, password: String? = nil, phoneNumber: String? = nil, _ completion: @escaping AuthResponse) {
         remoteAuthProvider.signIn(email: email, password: password, phoneNumber: phoneNumber) { [weak self] (authSession, error) in
             guard error == nil else {
-                return completion(nil, AuthError.failedToSignInWithRemote("email: \(email), password: \(password) \(error!.localizedDescription)"))
+                return completion(nil, AuthError.failedToSignInWithRemote("email: \(email ?? "no email"), password: \(password ?? "no password") \(error!.localizedDescription)"))
             }
             
             guard let authSession = authSession else {
@@ -66,10 +56,8 @@ extension EZAuthManager {
         }
     }
     
-    func configure(for authProvider: AuthProviderConfiguration, with dataStore: AuthDataStore? = nil) {
-        self.authProvider = authProvider
-        guard let dataStore = dataStore else { return }
-        self.dataStore = dataStore
+    func configure(for authProviderConfiguration: AuthProviderConfiguration) {
+        self.authProviderConfiguration = authProviderConfiguration
     }
     
     func clear(_ completion: @escaping AuthErrorResponse) {
@@ -94,7 +82,7 @@ extension EZAuthManager {
     }
     
     func signOut(_ completion: @escaping AuthErrorResponse) {
-        guard let authSession = authSession else {
+        guard let _ = authSession else {
             return completion(AuthError.cannotSignOutIfNotSignedIn)
         }
         
