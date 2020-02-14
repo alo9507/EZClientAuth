@@ -14,4 +14,4 @@ By default, the demo app is [configured](https://github.com/alo9507/EZClientAuth
 4. Follow [the official Google FirebaseAuth documentation for iOS](https://firebase.google.com/docs/auth/ios/start) to integrate the Firebase SDK into your project.</br>
    <b>NOTE:</b> <i>Recent changes in XCode projects paving the way for SwiftUI mean you should call `FirebaseApp.configure` in `SceneDelegate` not `AppDelegate` as it says in the Google documentation.</i>
 5. Be sure to enable `Email/Password` sign-in in the Authentication tab of your iOS Firebase project.
-6. Sign up a new user and then sign in or out as you please!
+6. Sign up a new user. Then sign-in or sign-out as you please!

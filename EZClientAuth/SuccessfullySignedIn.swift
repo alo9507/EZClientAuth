@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SuccessfullySignedIn: UIViewController {
+class SuccessfullySignedIn: NiblessViewController {
     lazy var authSessionToken: UILabel = {
         let authSessionToken = UILabel()
         
@@ -33,6 +33,15 @@ class SuccessfullySignedIn: UIViewController {
         view.backgroundColor = .white
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         render()
+    }
+    
+    var authManager: AuthMananger
+    
+    // 🧪 📐 Though EZAuthManager is a singleton, this initializer allows your tests to initializer-inject a MockAuthManager
+    // Reap the benefits of a singleton without the downsides of their untestability
+    init(authManager: AuthMananger = EZAuth.manager) {
+        self.authManager = authManager
+        super.init()
     }
     
     func render() {

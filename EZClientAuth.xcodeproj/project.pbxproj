@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		591D1DFE23D110E300C2DC3A /* KeychainDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */; };
 		591D1DFF23D110E300C2DC3A /* EZAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D1DF123D110E300C2DC3A /* EZAuth.swift */; };
 		592EFA6A23D11396001CE890 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592EFA6923D11396001CE890 /* LoginViewController.swift */; };
+		5955BAE323F73DD9009382A1 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955BAE223F73DD9009382A1 /* NiblessViewController.swift */; };
 		596459EA23D10FF800E029DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459E923D10FF800E029DB /* AppDelegate.swift */; };
 		596459EC23D10FF800E029DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459EB23D10FF800E029DB /* SceneDelegate.swift */; };
 		596459F023D10FF900E029DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596459EF23D10FF900E029DB /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		591D1DF023D110E300C2DC3A /* KeychainDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainDataStore.swift; sourceTree = "<group>"; };
 		591D1DF123D110E300C2DC3A /* EZAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZAuth.swift; sourceTree = "<group>"; };
 		592EFA6923D11396001CE890 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5955BAE223F73DD9009382A1 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		596459E623D10FF800E029DB /* EZClientAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZClientAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596459E923D10FF800E029DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596459EB23D10FF800E029DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				596459F423D10FF900E029DB /* LaunchScreen.storyboard */,
 				596459F723D10FF900E029DB /* Info.plist */,
 				596459F123D10FF900E029DB /* Preview Content */,
+				5955BAE223F73DD9009382A1 /* NiblessViewController.swift */,
 			);
 			path = EZClientAuth;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				5982184923D24AF500642B7C /* SuccessfullySignedIn.swift in Sources */,
 				591D1DFF23D110E300C2DC3A /* EZAuth.swift in Sources */,
 				591D1DFD23D110E300C2DC3A /* AuthDataStore.swift in Sources */,
+				5955BAE323F73DD9009382A1 /* NiblessViewController.swift in Sources */,
 				591B94B923EF554300AB7621 /* MockRemoteAuthProvider.swift in Sources */,
 				591D1DF223D110E300C2DC3A /* AuthMananger.swift in Sources */,
 			);
