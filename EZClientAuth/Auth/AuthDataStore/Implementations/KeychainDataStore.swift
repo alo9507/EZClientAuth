@@ -9,7 +9,7 @@
 import Foundation
 import Security
 
-class KeychainDataStore: AuthDataStore {
+class KeychainAuthDataStore: AuthDataStore {
     let keychainKey = "auth_session"
     
     func readAuthSession(_ completion: @escaping AuthResponse) {
@@ -91,7 +91,7 @@ class KeychainDataStore: AuthDataStore {
     }
 }
 
-extension KeychainDataStore {
+extension KeychainAuthDataStore {
     func getHumanReadableErrorMessage(resultCode: OSStatus) -> String {
         if #available(iOS 11.3, *) {
             return SecCopyErrorMessageString(resultCode, nil)! as String

@@ -15,6 +15,7 @@ class SuccessfullySignedIn: UIViewController {
         
         // Access the AuthSession from anywhere in the app after you configure and signIn
         guard let token = EZAuth.manager.authSession?.token else { fatalError() }
+        
         authSessionToken.text = token
         return authSessionToken
     }()

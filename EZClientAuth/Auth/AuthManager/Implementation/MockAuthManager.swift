@@ -22,7 +22,7 @@ class MockAuthManager: AuthMananger {
         return mockAuthSession
     }
     
-    var dataStore: AuthDataStore = KeychainDataStore()
+    var authDataStore: AuthDataStore = KeychainAuthDataStore()
     
     var remoteAuthProvider: RemoteAuthProvider = MockRemoteAuthProvider()
     

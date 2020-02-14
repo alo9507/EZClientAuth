@@ -6,6 +6,7 @@
 //  Copyright © 2019 Andrew O'Brien. All rights reserved.
 //
 
+/// - Tag: AuthSession
 public class AuthSession: Codable {
     public let token: String
     public let refreshToken: String

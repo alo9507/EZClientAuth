@@ -12,7 +12,7 @@ class EZAuthManager: AuthMananger {
     
     var authSession: AuthSession?
     
-    var dataStore: AuthDataStore = KeychainDataStore()
+    var authDataStore: AuthDataStore = KeychainAuthDataStore()
     
     var authProviderConfiguration: AuthProviderConfiguration?
     
@@ -47,7 +47,7 @@ extension EZAuthManager {
                 return completion(nil, AuthError.failedToRetrieveAuthSession("No AuthSession, but also no errors?"))
             }
             
-            self?.dataStore.save(authSession: authSession, { (error) in
+            self?.authDataStore.save(authSession: authSession, { (error) in
                 guard error == nil else {
                     return completion(nil, AuthError.failedToPersistAuthSessionData(error!.localizedDescription))
                 }
@@ -58,7 +58,7 @@ extension EZAuthManager {
     }
     
     func clear(_ completion: @escaping AuthErrorResponse) {
-        self.dataStore.delete { (error) in
+        self.authDataStore.delete { (error) in
             guard error == nil else {
                 return completion(AuthError.failedToRemoveAuthSessionData("Could not clear cached session: \(error!.localizedDescription)"))
             }
@@ -71,7 +71,7 @@ extension EZAuthManager {
             if error != nil { return print(error!.localizedDescription) }
             guard let authSession = authSession else { return completion(nil, AuthError.failedToSignUpNewUser("No Auth session returned")) }
             
-            self.dataStore.save(authSession: authSession) { (error) in
+            self.authDataStore.save(authSession: authSession) { (error) in
                 if error != nil { return completion(nil, AuthError.failedToPersistAuthSessionData(error!.localizedDescription)) }
                 completion(authSession, nil)
             }
@@ -83,7 +83,7 @@ extension EZAuthManager {
             return completion(AuthError.cannotSignOutIfNotSignedIn)
         }
         
-        self.dataStore.delete { (error) in
+        self.authDataStore.delete { (error) in
             guard error == nil else {
                 return completion(AuthError.failedToRemoveAuthSessionData(error!.localizedDescription))
             }
@@ -92,7 +92,7 @@ extension EZAuthManager {
     }
     
     func isAuthenticated(_ completion: @escaping AuthResponse) {
-        dataStore.readAuthSession { (authSession, error) in
+        authDataStore.readAuthSession { (authSession, error) in
             guard error == nil else {
                 return completion(nil, AuthError.failedToReadLocalAuthSession(error!.localizedDescription))
             }
@@ -114,7 +114,7 @@ extension EZAuthManager {
                     self.authSession = authSession
                     completion(authSession, nil)
                 } else {
-                    self.dataStore.delete { (error) in
+                    self.authDataStore.delete { (error) in
                         guard error == nil else {
                             let msg = """
                             Cached auth session is no longer valid with your remote AuthProvider. \
