@@ -1,13 +1,13 @@
 <h1>EZClientAuth Example App</h1>
 
-Complete Code for the tutorial [Domain Driven Authentication](https://www.justkeepclicking.io/domain-driven-authentication/).
+Complete EZClientAuth code for the tutorial [Domain Driven Authentication](https://www.justkeepclicking.io/domain-driven-authentication/).
 
-This includes all the interfaces of EZClientAuth in the `Auth` folder alongside the main project.
+For simplicity, EZClientAuth is included in the same project as the demo app, but it can also be extracted to its own Framework and imported as a dependency into multiple apps.
 
-The implementation we configure with is a mock so you can familiarize yourself with the general flow of the AuthManager.
+By default, the demo app is configured with a MockRemoteAuthProvider.
 
-EZClientAuth can also be included as a separate `Framework` dependency.
+<h2>How to Configure Firebase as a RemoteAuthProvider</h2>
 
-This EZClientAuth example app is ready to go for `FirebaseAuth` as well, though I have the `FirebaseRemoteAuthProvider` implementation and `Podfile` commented out to prevent the need for a `pod install` for people who just want to poke around.
-
-Follow [these helpful iOS FirebaseAuth docs](https://firebase.google.com/docs/auth/ios/start) to get started if you want a functioning RemoteAuthProvider for your app.
+1. Uncomment `FirebaseRemoteAuthProvider`
+2. Run `pod install`
+3. Follow [the official Google FirebaseAuth documentation for iOS](https://firebase.google.com/docs/auth/ios/start).

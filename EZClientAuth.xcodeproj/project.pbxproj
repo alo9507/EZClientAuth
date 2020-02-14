@@ -22,7 +22,6 @@
 		592EFA6A23D11396001CE890 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592EFA6923D11396001CE890 /* LoginViewController.swift */; };
 		596459EA23D10FF800E029DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459E923D10FF800E029DB /* AppDelegate.swift */; };
 		596459EC23D10FF800E029DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459EB23D10FF800E029DB /* SceneDelegate.swift */; };
-		596459EE23D10FF800E029DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596459ED23D10FF800E029DB /* ContentView.swift */; };
 		596459F023D10FF900E029DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596459EF23D10FF900E029DB /* Assets.xcassets */; };
 		596459F323D10FF900E029DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596459F223D10FF900E029DB /* Preview Assets.xcassets */; };
 		596459F623D10FF900E029DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596459F423D10FF900E029DB /* LaunchScreen.storyboard */; };
@@ -49,7 +48,6 @@
 		596459E623D10FF800E029DB /* EZClientAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZClientAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596459E923D10FF800E029DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596459EB23D10FF800E029DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		596459ED23D10FF800E029DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		596459EF23D10FF900E029DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		596459F223D10FF900E029DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		596459F523D10FF900E029DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,18 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		591D1DDB23D110E300C2DC3A /* Auth */ = {
+		591D1DDB23D110E300C2DC3A /* EZClientAuth */ = {
 			isa = PBXGroup;
 			children = (
-				59CB827023F6FC4D003B9AA5 /* AuthResponses */,
+				591D1DF123D110E300C2DC3A /* EZAuth.swift */,
 				591D1DDC23D110E300C2DC3A /* AuthManager */,
+				59CB827023F6FC4D003B9AA5 /* AuthResponses */,
 				591D1DE123D110E300C2DC3A /* RemoteAuthProvider */,
 				591D1DE623D110E300C2DC3A /* Enums */,
 				591D1DEA23D110E300C2DC3A /* Models */,
 				591D1DED23D110E300C2DC3A /* AuthDataStore */,
-				591D1DF123D110E300C2DC3A /* EZAuth.swift */,
 			);
-			path = Auth;
+			path = EZClientAuth;
 			sourceTree = "<group>";
 		};
 		591D1DDC23D110E300C2DC3A /* AuthManager */ = {
@@ -175,16 +173,15 @@
 		596459E823D10FF800E029DB /* EZClientAuth */ = {
 			isa = PBXGroup;
 			children = (
-				591D1DDB23D110E300C2DC3A /* Auth */,
-				596459E923D10FF800E029DB /* AppDelegate.swift */,
+				591D1DDB23D110E300C2DC3A /* EZClientAuth */,
 				596459EB23D10FF800E029DB /* SceneDelegate.swift */,
-				596459ED23D10FF800E029DB /* ContentView.swift */,
+				592EFA6923D11396001CE890 /* LoginViewController.swift */,
+				5982184823D24AF500642B7C /* SuccessfullySignedIn.swift */,
 				596459EF23D10FF900E029DB /* Assets.xcassets */,
+				596459E923D10FF800E029DB /* AppDelegate.swift */,
 				596459F423D10FF900E029DB /* LaunchScreen.storyboard */,
 				596459F723D10FF900E029DB /* Info.plist */,
 				596459F123D10FF900E029DB /* Preview Content */,
-				592EFA6923D11396001CE890 /* LoginViewController.swift */,
-				5982184823D24AF500642B7C /* SuccessfullySignedIn.swift */,
 			);
 			path = EZClientAuth;
 			sourceTree = "<group>";
@@ -302,7 +299,6 @@
 				5982184923D24AF500642B7C /* SuccessfullySignedIn.swift in Sources */,
 				591D1DFF23D110E300C2DC3A /* EZAuth.swift in Sources */,
 				591D1DFD23D110E300C2DC3A /* AuthDataStore.swift in Sources */,
-				596459EE23D10FF800E029DB /* ContentView.swift in Sources */,
 				591B94B923EF554300AB7621 /* MockRemoteAuthProvider.swift in Sources */,
 				591D1DF223D110E300C2DC3A /* AuthMananger.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 class MockRemoteAuthProvider: RemoteAuthProvider {
     func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse) {
-        let mockAuthSession = AuthSession(token: "FAKE AUTH TOKEN FROM REMOTE", refreshToken: "")
+        let mockAuthSession = AuthSession(token: "MOCK_AUTH_TOKEN", refreshToken: "")
         completion(mockAuthSession, nil)
     }
     
@@ -17,7 +17,7 @@ class MockRemoteAuthProvider: RemoteAuthProvider {
     }
     
     func signUp(email: String, password: String, completion: @escaping AuthResponse) {
-        let mockAuthSession = AuthSession(token: "FAKE AUTH TOKEN FROM REMOTE", refreshToken: "")
+        let mockAuthSession = AuthSession(token: "MOCK_AUTH_TOKEN", refreshToken: "")
         completion(mockAuthSession, nil)
     }
     

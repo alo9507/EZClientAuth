@@ -7,7 +7,8 @@
 //
 
 /// - Tag: AuthSession
-public class AuthSession: Codable {
+/// Encapsulates the user's basic authetnication information (e.g. JWT token, refresh token, etc.)
+public struct AuthSession: Codable {
     public let token: String
     public let refreshToken: String
     public var uid: String = ""
