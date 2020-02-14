@@ -8,16 +8,16 @@
 
 import UIKit
 import SwiftUI
-//import Firebase
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
         
         // 🚨🚨🚨 YOU MUST CONFIGURE THE EZAUTHMANAGER BEFORE CALLING ANY AUTHENTICATION METHODS! 🚨🚨🚨
         // 👻 Using a MockRemoteAuthProvider for the demo app which always returns an AuthSession
-        EZAuth.configure(for: .mock)
+        EZAuth.configure(for: .firebase)
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

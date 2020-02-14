@@ -9,6 +9,8 @@ By default, the demo app is [configured](https://github.com/alo9507/EZClientAuth
 <h2>How to Configure Firebase Auth as a RemoteAuthProvider</h2>
 
 1. Run `pod install`
-2. Uncomment [FirebaseRemoteAuthProvider](https://github.com/alo9507/EZClientAuth/blob/master/EZClientAuth/EZClientAuth/RemoteAuthProvider/Implementations/FirebaseRemoteAuthProvider.swift)
-3. Follow [the official Google FirebaseAuth documentation for iOS](https://firebase.google.com/docs/auth/ios/start).</br>
+2. Open `EZClientAuth.xcworkspace`. Make sure you're not still in `EZClientAuth.xcodeproj` because it is not aware of your dependencies.
+3. Uncomment [FirebaseRemoteAuthProvider](https://github.com/alo9507/EZClientAuth/blob/master/EZClientAuth/EZClientAuth/RemoteAuthProvider/Implementations/FirebaseRemoteAuthProvider.swift)
+4. Follow [the official Google FirebaseAuth documentation for iOS](https://firebase.google.com/docs/auth/ios/start) to integrate the Firebase SDK into your project.</br>
    <b>NOTE:</b> <i>Recent changes in XCode projects paving the way for SwiftUI mean you should call `FirebaseApp.configure` in `SceneDelegate` not `AppDelegate` as it says in the Google documentation.</i>
+5. Be sure to enable `Email/Password` sign-in in the Authentication tab of your iOS Firebase project.

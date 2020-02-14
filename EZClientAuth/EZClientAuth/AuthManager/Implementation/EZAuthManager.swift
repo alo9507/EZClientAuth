@@ -68,11 +68,20 @@ extension EZAuthManager {
     
     func signUp(email: String, password: String,  _ completion: @escaping AuthResponse) {
         remoteAuthProvider.signUp(email: email, password: password) { (authSession, error) in
-            if error != nil { return print(error!.localizedDescription) }
-            guard let authSession = authSession else { return completion(nil, AuthError.failedToSignUpNewUser("No Auth session returned")) }
+            guard error == nil else {
+                return completion(nil, AuthError.failedToSignUpNewUser(error!.localizedDescription))
+            }
+            
+            guard let authSession = authSession else {
+                return completion(nil, AuthError.failedToSignUpNewUser("No Auth session returned"))
+            }
             
             self.authDataStore.save(authSession: authSession) { (error) in
-                if error != nil { return completion(nil, AuthError.failedToPersistAuthSessionData(error!.localizedDescription)) }
+                guard error == nil else {
+                    completion(nil, AuthError.failedToPersistAuthSessionData(error!.localizedDescription))
+                    return
+                }
+                self.authSession = authSession
                 completion(authSession, nil)
             }
         }

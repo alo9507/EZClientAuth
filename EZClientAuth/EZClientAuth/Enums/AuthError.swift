@@ -21,6 +21,7 @@ public enum AuthError: Error, Equatable {
     case failedToValidateAuthSession(_ error: String)
     case invalidAccessToken(_ error: String)
     case cannotSignOutIfNotSignedIn
+    case userDoesNotExist(_ error: String)
     case invalidGroup(_ error: String)
     case failedToSignUpNewUser(_ error: String)
     case unknownError(_ error: String)
@@ -57,6 +58,8 @@ extension AuthError: LocalizedError {
             return "Failed to register new user: \(error)"
         case .failedToRetrieveAuthSession(let error):
             return "Failed to retrieve AuthSession from remote auth provider: \(error)"
+        case .userDoesNotExist(let error):
+            return "The credentials you entered do not correspond to any user known to the remote auth provider: \(error)"
         case .unknownError(let error):
             return "An unknown error occurred: \(error)"
         }
