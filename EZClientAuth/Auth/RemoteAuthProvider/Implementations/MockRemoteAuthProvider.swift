@@ -6,8 +6,6 @@
 //  Copyright © 2020 Andrew O'Brien. All rights reserved.
 //
 
-import Foundation
-
 class MockRemoteAuthProvider: RemoteAuthProvider {
     func signIn(email: String?, password: String?, phoneNumber: String?, _ completion: @escaping AuthResponse) {
         let mockAuthSession = AuthSession(token: "FAKE AUTH TOKEN FROM REMOTE", refreshToken: "")

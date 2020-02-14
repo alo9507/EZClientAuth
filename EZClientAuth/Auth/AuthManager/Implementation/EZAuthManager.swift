@@ -1,6 +1,6 @@
 //
 //  EZAuthManager.swift
-//  AuthFramework
+//  EZClientAuth
 //
 //  Created by Andrew O'Brien on 12/11/19.
 //  Copyright © 2019 Andrew O'Brien. All rights reserved.
@@ -9,6 +9,7 @@
 import Foundation
 
 class EZAuthManager: AuthMananger {
+    
     var authSession: AuthSession?
     
     var dataStore: AuthDataStore = KeychainDataStore()
@@ -20,7 +21,7 @@ class EZAuthManager: AuthMananger {
             fatalError("""
             
             You must call Auth.configure(for: AuthProvider) before calling any methods on AuthFramework.
-                You can initialize with the following AuthProviders: Firebase
+            You can initialize with the following AuthProviders: Firebase
                 
                 For testing, you can configure with .mock
             """
@@ -48,7 +49,7 @@ extension EZAuthManager {
             
             self?.dataStore.save(authSession: authSession, { (error) in
                 guard error == nil else {
-                    return completion(nil, AuthError.failedToPersistUserSessionData(error!.localizedDescription))
+                    return completion(nil, AuthError.failedToPersistAuthSessionData(error!.localizedDescription))
                 }
                 self!.authSession = authSession
                 completion(authSession, nil)
@@ -56,14 +57,10 @@ extension EZAuthManager {
         }
     }
     
-    func configure(for authProviderConfiguration: AuthProviderConfiguration) {
-        self.authProviderConfiguration = authProviderConfiguration
-    }
-    
     func clear(_ completion: @escaping AuthErrorResponse) {
         self.dataStore.delete { (error) in
             guard error == nil else {
-                return completion(AuthError.failedToRemoveUserSessionData("Could not clear cached session: \(error!.localizedDescription)"))
+                return completion(AuthError.failedToRemoveAuthSessionData("Could not clear cached session: \(error!.localizedDescription)"))
             }
             completion(nil)
         }
@@ -75,7 +72,7 @@ extension EZAuthManager {
             guard let authSession = authSession else { return completion(nil, AuthError.failedToSignUpNewUser("No Auth session returned")) }
             
             self.dataStore.save(authSession: authSession) { (error) in
-                if error != nil { return completion(nil, AuthError.failedToPersistUserSessionData(error!.localizedDescription)) }
+                if error != nil { return completion(nil, AuthError.failedToPersistAuthSessionData(error!.localizedDescription)) }
                 completion(authSession, nil)
             }
         }
@@ -88,7 +85,7 @@ extension EZAuthManager {
         
         self.dataStore.delete { (error) in
             guard error == nil else {
-                return completion(AuthError.failedToRemoveUserSessionData(error!.localizedDescription))
+                return completion(AuthError.failedToRemoveAuthSessionData(error!.localizedDescription))
             }
             completion(nil)
         }
@@ -123,12 +120,16 @@ extension EZAuthManager {
                             Cached auth session is no longer valid with your remote AuthProvider. \
                             Encountered error while attempting to flush cache: \(error!.localizedDescription)
                             """
-                            return completion(nil, AuthError.failedToRemoveUserSessionData(msg))
+                            return completion(nil, AuthError.failedToRemoveAuthSessionData(msg))
                         }
                         completion(nil, nil)
                     }
                 }
             }
         }
+    }
+    
+    func configure(for authProviderConfiguration: AuthProviderConfiguration) {
+        self.authProviderConfiguration = authProviderConfiguration
     }
 }

@@ -1,6 +1,6 @@
 //
 //  KeychainDataStore.swift
-//  AuthFramework
+//  EZClientAuth
 //
 //  Created by Andrew O'Brien on 12/11/19.
 //  Copyright © 2019 Andrew O'Brien. All rights reserved.
@@ -59,19 +59,19 @@ class KeychainDataStore: AuthDataStore {
             let updateStatus = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
             
             guard updateStatus == errSecItemNotFound || updateStatus == errSecSuccess else {
-                return completion(AuthError.failedToPersistUserSessionData(getHumanReadableErrorMessage(resultCode: updateStatus)))
+                return completion(AuthError.failedToPersistAuthSessionData(getHumanReadableErrorMessage(resultCode: updateStatus)))
             }
             
             if updateStatus == errSecItemNotFound {
                 let addStatus = SecItemAdd(query as CFDictionary, nil)
                 
                 guard addStatus == errSecSuccess else {
-                    return completion(AuthError.failedToPersistUserSessionData(getHumanReadableErrorMessage(resultCode: addStatus)))
+                    return completion(AuthError.failedToPersistAuthSessionData(getHumanReadableErrorMessage(resultCode: addStatus)))
                 }
             }
             completion(nil)
         } catch let error {
-            completion(AuthError.failedToPersistUserSessionData(error.localizedDescription))
+            completion(AuthError.failedToPersistAuthSessionData(error.localizedDescription))
         }
     }
     
@@ -86,7 +86,7 @@ class KeychainDataStore: AuthDataStore {
         if resultCode == errSecSuccess {
             completion(nil)
         } else {
-            completion(AuthError.failedToRemoveUserSessionData(getHumanReadableErrorMessage(resultCode: resultCode)))
+            completion(AuthError.failedToRemoveAuthSessionData(getHumanReadableErrorMessage(resultCode: resultCode)))
         }
     }
 }

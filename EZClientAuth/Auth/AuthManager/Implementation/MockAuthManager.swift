@@ -1,13 +1,10 @@
 //
 //  MockAuthManager.swift
-//  Contact
+//  EZClientAuth
 //
 //  Created by Andrew O'Brien on 1/2/20.
 //  Copyright © 2020 Andrew O'Brien. All rights reserved.
 //
-
-import Foundation
-
 
 /// Use this MockAuthManager in your application to manipulate authentication state and see how your app responds
 class MockAuthManager: AuthMananger {
@@ -81,6 +78,7 @@ class MockAuthManager: AuthMananger {
         }
     }
     
+    func configure(for authProvider: AuthProviderConfiguration) {}
 }
 
 extension MockAuthManager: TestResetable {
